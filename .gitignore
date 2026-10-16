@@ -1,0 +1,10 @@
+# Xcode / build
+build/
+DerivedData/
+*.xcodeproj
+xcuserdata/
+*.ipa
+*.dSYM.zip
+
+# macOS
+.DS_Store
