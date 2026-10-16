@@ -2,6 +2,7 @@ name: DylibLab
 options:
   deploymentTarget:
     iOS: "16.0"
+  xcodeVersion: "16.0"
   createIntermediateGroups: true
 settings:
   base:
