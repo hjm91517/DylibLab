@@ -28,14 +28,14 @@ struct MarkdownText: View {
     private func blockView(_ b: MDBlock) -> some View {
         switch b.kind {
         case .heading(let level, let text):
-            Text(inline(text))
+            Self.inline(text)
                 .font(.system(size: level == 1 ? 19 : 16, weight: .bold))
-                .foregroundStyle(Theme.textPrimary)
+                .foregroundColor(Theme.textPrimary)
                 .padding(.top, level == 1 ? 8 : 4)
         case .para(let text):
-            Text(inline(text))
+            Self.inline(text)
                 .font(.system(size: 14.5))
-                .foregroundStyle(Theme.textSecondary)
+                .foregroundColor(Theme.textSecondary)
                 .lineSpacing(5)
                 .fixedSize(horizontal: false, vertical: true)
         case .bullet(let text):
@@ -44,9 +44,9 @@ struct MarkdownText: View {
                     .fill(Theme.accent)
                     .frame(width: 5, height: 5)
                     .padding(.top, 8)
-                Text(inline(text))
+                Self.inline(text)
                     .font(.system(size: 14.5))
-                    .foregroundStyle(Theme.textSecondary)
+                    .foregroundColor(Theme.textSecondary)
                     .lineSpacing(4)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -122,7 +122,7 @@ struct MarkdownText: View {
                 let after = s.index(i, offsetBy: 2)
                 if let range = s[after...].firstRange(of: "**") {
                     let inner = String(s[after..<range.lowerBound])
-                    result = result + Text(inner).bold().foregroundStyle(Theme.textPrimary)
+                    result = result + Text(inner).bold().foregroundColor(Theme.textPrimary)
                     i = range.upperBound
                     continue
                 }
@@ -133,7 +133,7 @@ struct MarkdownText: View {
                     let inner = String(s[after..<end])
                     result = result + Text(inner)
                         .font(.system(size: 12.5, design: .monospaced))
-                        .foregroundStyle(Theme.accent)
+                        .foregroundColor(Theme.accent)
                     i = s.index(after: end)
                     continue
                 }

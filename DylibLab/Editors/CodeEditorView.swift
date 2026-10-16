@@ -58,7 +58,7 @@ struct CodeEditorView: UIViewRepresentable {
             guard tv.markedTextRange == nil else { return }
             let w = DispatchWorkItem { [weak tv] in
                 guard let tv else { return }
-                let source = tv.text
+                let source = tv.text ?? ""
                 let highlighted = SyntaxHighlighter.highlight(source)
                 DispatchQueue.main.async {
                     guard tv.text == source else { return }

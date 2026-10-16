@@ -2,7 +2,7 @@ import Foundation
 
 // 教程模型与内置课程
 
-enum TutorialLevel: String, Codable {
+enum TutorialLevel: String, Codable, CaseIterable {
     case beginner = "新手"
     case intermediate = "进阶"
     case advanced = "高级"

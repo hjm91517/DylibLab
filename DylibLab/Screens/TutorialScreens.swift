@@ -292,5 +292,3 @@ struct TutorialDetailScreen: View {
         return ("circle", Theme.textFaint, Theme.bg, Theme.border, false)
     }
 }
-
-extension TutorialLevel: CaseIterable {}
